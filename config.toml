@@ -1,6 +1,6 @@
 title = 'Arm Learning Paths'
 
-baseURL = '/'
+baseURL = "https://masonkuomeow.github.io/arm-learning-paths/"
 languageCode = 'en-us'
 theme = "arm-design-system-hugo-theme"
 
@@ -67,9 +67,9 @@ weight = 50
 
 [params]
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/ArmDeveloperEcosystem/arm-learning-paths"
+github_repo = "https://github.com/masonkuomeow/arm-learning-paths"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
-github_project_repo = "https://github.com/ArmDeveloperEcosystem/arm-learning-paths"
+github_project_repo = "https://github.com/masonkuomeow/arm-learning-paths"
 # location of assets
 assetsDir = "assets"
 
@@ -78,7 +78,7 @@ assetsDir = "assets"
 
 # Uncomment this if your GitHub repo does not have "main" as the default branch,
 # or specify a new value if you want to reference another branch in your GitHub links
-github_branch = "main"
+github_branch = "lp_fwauto"
 
 # For metadata posting on socials
 title = 'Arm Learning Paths'
