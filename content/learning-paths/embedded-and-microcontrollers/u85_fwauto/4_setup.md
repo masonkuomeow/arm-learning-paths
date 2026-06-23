@@ -149,7 +149,7 @@ arm-none-eabi-gcc --version
 Open a Command Prompt and clone the project:
 
 ```command
-git clone https://github.com/odincodeshen/alif_slm_r.git
+git clone https://github.com/masonkuomeow/alif_slm_r.git
 cd alif_slm_r
 ```
 
