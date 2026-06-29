@@ -37,11 +37,7 @@ The server is now running and connected to the board.
 
 ### Open the dashboard
 
-Open your web browser and go to:
-
-```
-http://localhost:5000
-```
+Open your web browser and go to `http://localhost:5000`.
 
 The SLM dashboard shows:
 

@@ -40,7 +40,11 @@ Verify in a new Command Prompt:
 python --version
 ```
 
-You should see `Python 3.10.x` or later.
+You should see output similar to:
+
+```output
+Python 3.12.4
+```
 
 ### Install Node.js
 
@@ -57,7 +61,11 @@ Verify:
 node --version
 ```
 
-You should see `v20.x.x` or later.
+You should see output similar to:
+
+```output
+v20.15.0
+```
 
 ### Install uv
 
@@ -71,6 +79,12 @@ Close and reopen PowerShell after installation. Verify:
 
 ```bash
 uv --version
+```
+
+You should see output similar to:
+
+```output
+uv 0.4.0
 ```
 
 ### Install FWAuto
@@ -103,7 +117,12 @@ A browser window opens. Select your Google account and authorize access. After l
 fwauto auth status
 ```
 
-You should see `Status: Logged in` with your email address.
+You should see output similar to:
+
+```output
+Status: Logged in
+Email: your.email@example.com
+```
 
 ### Install SEGGER J-Link software
 
