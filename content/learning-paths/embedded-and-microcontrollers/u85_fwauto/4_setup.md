@@ -8,7 +8,7 @@ layout: learningpathall
 
 ## Install tools and set up hardware
 
-This section walks you through installing every tool and preparing the Alif E8 board.
+This section walks you through installing every tool and preparing the [Alif E8 DevKit](https://alifsemi.com/support/kits/ensemble-e8devkit/).
 
 ### Hardware setup
 
@@ -26,7 +26,7 @@ This section walks you through installing every tool and preparing the Alif E8 b
 
 ### Install Python
 
-FWAuto requires Python 3.10 or later.
+[FWAuto](https://fwauto.ai/) requires [Python](https://www.python.org/) 3.10 or later.
 
 1. Go to [python.org/downloads](https://www.python.org/downloads/)
 2. Download the latest Python 3.x installer for Windows
@@ -36,7 +36,7 @@ FWAuto requires Python 3.10 or later.
 
 Verify in a new Command Prompt:
 
-```command
+```bash
 python --version
 ```
 
@@ -44,7 +44,7 @@ You should see `Python 3.10.x` or later.
 
 ### Install Node.js
 
-FWAuto requires Node.js 20 or later.
+FWAuto requires [Node.js](https://nodejs.org/) 20 or later.
 
 1. Go to [nodejs.org/en/download](https://nodejs.org/en/download)
 2. Download the **Windows Installer (.msi)** for version 20 or later
@@ -53,7 +53,7 @@ FWAuto requires Node.js 20 or later.
 
 Verify:
 
-```command
+```bash
 node --version
 ```
 
@@ -63,13 +63,13 @@ You should see `v20.x.x` or later.
 
 [uv](https://docs.astral.sh/uv/) is a Python package manager that FWAuto uses. Install it in PowerShell (run as Administrator):
 
-```command
+```bash
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
 Close and reopen PowerShell after installation. Verify:
 
-```command
+```bash
 uv --version
 ```
 
@@ -77,13 +77,13 @@ uv --version
 
 Install FWAuto using the official install script. In PowerShell:
 
-```command
+```bash
 powershell -ExecutionPolicy ByPass -c "irm https://fwauto.ai/install.ps1 | iex"
 ```
 
 The script installs the `fwauto` CLI and the AI CLI tools. Verify:
 
-```command
+```bash
 fwauto --help
 ```
 
@@ -93,13 +93,13 @@ You should see the FWAuto banner and a list of available commands.
 
 FWAuto uses Google OAuth for authentication. Run:
 
-```command
+```bash
 fwauto auth login
 ```
 
 A browser window opens. Select your Google account and authorize access. After login, verify:
 
-```command
+```bash
 fwauto auth status
 ```
 
@@ -107,7 +107,7 @@ You should see `Status: Logged in` with your email address.
 
 ### Install SEGGER J-Link software
 
-The J-Link software provides the debug probe driver and tools for communicating with the Alif E8 board.
+The [SEGGER J-Link](https://www.segger.com/downloads/jlink/) software provides the debug probe driver and tools for communicating with the Alif E8 board.
 
 1. Go to [segger.com/downloads/jlink](https://www.segger.com/downloads/jlink/)
 2. Download the **J-Link Software and Documentation Pack** for Windows
@@ -115,19 +115,19 @@ The J-Link software provides the debug probe driver and tools for communicating 
 
 Verify:
 
-```command
+```bash
 JLinkExe --version
 ```
 
 ### Install build tools
 
-The firmware build requires CMake, Ninja, and the Arm GNU toolchain.
+The firmware build requires [CMake](https://cmake.org/), [Ninja](https://ninja-build.org/), and the [Arm GNU Toolchain](https://developer.arm.com/downloads/-/gnu-rm).
 
 1. Install CMake from [cmake.org/download](https://cmake.org/download/). Select "Add CMake to the system PATH" during installation.
 
 2. Install Ninja:
 
-```command
+```bash
 winget install Ninja-build.Ninja
 ```
 
@@ -138,7 +138,7 @@ winget install Ninja-build.Ninja
 
 Verify all three tools:
 
-```command
+```bash
 cmake --version
 ninja --version
 arm-none-eabi-gcc --version
@@ -148,14 +148,14 @@ arm-none-eabi-gcc --version
 
 Open a Command Prompt and clone the project:
 
-```command
-git clone https://github.com/masonkuomeow/alif_slm_r.git
+```bash
+git clone https://github.com/odincodeshen/alif_slm_r.git
 cd alif_slm_r
 ```
 
 Install the Python dependencies for the web server:
 
-```command
+```bash
 pip install flask pyserial
 ```
 
@@ -163,7 +163,7 @@ pip install flask pyserial
 
 Navigate to the project root and run any FWAuto command to start the setup wizard:
 
-```command
+```bash
 fwauto build
 ```
 
@@ -174,7 +174,7 @@ The wizard asks you to configure:
 
 After the wizard completes, a `.fwauto/` directory is created:
 
-```
+```console
 .fwauto/
 ├── config.toml     # Project configuration
 ├── build/          # Build scripts

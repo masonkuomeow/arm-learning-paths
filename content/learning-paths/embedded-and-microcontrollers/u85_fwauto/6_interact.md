@@ -8,13 +8,13 @@ layout: learningpathall
 
 ## Start the web GUI and interact with the model
 
-This section covers starting the Flask web server and using the browser dashboard to send prompts to the SLM.
+This section covers starting the [Flask](https://flask.palletsprojects.com/) web server and using the browser dashboard to send prompts to the SLM. The web GUI provides a user-friendly interface for interacting with the model -- you type prompts in a browser and see responses streamed in real time, without needing a serial terminal.
 
 ### Start the web server
 
 Open a Command Prompt, navigate to the project root, and start the server:
 
-```command
+```bash
 cd alif_slm_r
 python web_demo_server.py --serial-port COM3 --no-reset
 ```
@@ -25,7 +25,7 @@ The `--no-reset` flag tells the server not to toggle DTR/RTS on the serial port.
 
 You should see output similar to:
 
-```
+```output
 [SERVER] Starting on http://0.0.0.0:5000
 [SERVER] Running in LIVE mode (serial connection to board)
 [SERIAL] Auto-detected port: COM3 (J-Link CDC UART)
@@ -56,14 +56,14 @@ The SLM dashboard shows:
 1. Click the **cat** quick-prompt button, or type `cat` in the text input field and press Enter.
 
 2. The dashboard shows:
-   - The prompt is sent to the board over UART
+   - The prompt is sent to the board over [UART](https://developer.mozilla.org/en-US/docs/Glossary/UART)
    - The terminal shows `Classifying 'cat'...`
    - The model generates text (this takes about 1.5 to 3.5 seconds)
    - The output appears in the terminal and as a result card
 
 3. The board prints:
 
-   ```
+   ```output
    Classifying 'cat'...
    Output: lways remember to be careful.
    (1500 ms total, 60.0 ms/token)
@@ -71,7 +71,7 @@ The SLM dashboard shows:
    READY>
    ```
 
-4. The dashboard updates automatically via Server-Sent Events (SSE).
+4. The dashboard updates automatically via [Server-Sent Events (SSE)](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events).
 
 ### Try more prompts
 
@@ -113,7 +113,7 @@ The model generates text continuations, not factual answers. The output is based
 
 To test the dashboard without a board connected, run in demo mode:
 
-```command
+```bash
 python web_demo_server.py --demo
 ```
 

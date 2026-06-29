@@ -8,7 +8,7 @@ layout: learningpathall
 
 ## Build and flash the firmware
 
-This section covers building the SLM firmware from source and flashing it to the Alif E8 board. You do this manually first, then use FWAuto's `/build` and `/deploy` commands.
+This section covers building the SLM firmware from source and flashing it to the [Alif E8](https://alifsemi.com/support/kits/ensemble-e8devkit/) board. You do this manually first, then use [FWAuto](https://fwauto.ai/)'s `/build` and `/deploy` commands.
 
 ### Understand the project structure
 
@@ -17,7 +17,7 @@ The project contains two firmware implementations:
 | Directory | Description |
 |---|---|
 | `workshop-ethos-u/` | Batch-mode firmware (runs preset prompts, then stops) |
-| `alif_vscode-template/` | Interactive firmware with UART input, BPE tokenizer, and READY/DONE markers |
+| `alif_vscode-template/` | Interactive firmware with [UART](https://developer.mozilla.org/en-US/docs/Glossary/UART) input, [BPE](https://huggingface.co/learn/nlp-course/chapter6/5) tokenizer, and READY/DONE markers |
 
 You use the **interactive firmware** in `alif_vscode-template/`.
 
@@ -35,19 +35,19 @@ Key source files:
 
 Open a Command Prompt, navigate to the project root, and build:
 
-```command
+```bash
 cd alif_slm_r\alif_vscode-template
 cmake --build tmp --target stories260k_runner.debug+E8-HE
 ```
 
-This compiles the firmware for the Cortex-M55 HE core. The build produces:
+This compiles the firmware for the [Cortex-M55](https://developer.arm.com/Processors/Cortex-M55) HE core. The build produces:
 
 - `alif_vscode-template/out/stories260k_runner/E8-HE/debug/stories260k_runner.elf` (ELF with debug symbols)
 - `alif_vscode-template/out/stories260k_runner/E8-HE/debug/stories260k_runner.bin` (raw binary for flashing)
 
 You should see output similar to:
 
-```
+```output
 [0/6] Performing build step for 'stories260k_runner.debug+E8-HE'
 Building CMake target 'stories260k_runner.debug+E8-HE'
 Using compiler: GCC V14.2.1
@@ -63,7 +63,7 @@ MRAM: 1149296 B / 2 MB (54.80%)
 
 Navigate back to the project root and run the deploy script:
 
-```command
+```bash
 cd ..
 python deploy_setools.py "alif_vscode-template/out/stories260k_runner/E8-HE/debug/stories260k_runner.bin" --com COM3
 ```
@@ -75,11 +75,11 @@ The script:
 1. Copies the binary to the SETOOLS build directory
 2. Generates an ATOC (Application Table of Contents) package
 3. Enters soft maintenance mode
-4. Writes the firmware to MRAM
+4. Writes the firmware to [MRAM](https://en.wikipedia.org/wiki/Magnetoresistive_random-access_memory)
 
 You should see:
 
-```
+```output
 ============================================================
   Alif SETOOLS Deploy
 ============================================================
@@ -98,13 +98,13 @@ After flashing, the board reboots automatically and runs the new firmware.
 
 Open a serial terminal to check the board output:
 
-```command
+```bash
 powershell -Command "$p = New-Object System.IO.Ports.SerialPort('COM3',115200,'None',8,'One'); $p.ReadTimeout=5000; $p.Open(); Start-Sleep -Seconds 3; $d=$p.ReadExisting(); $p.Close(); Write-Host $d"
 ```
 
 You should see output similar to:
 
-```
+```output
 ============================================
  stories260K LLM - Alif E8 Board
  Object Classification Demo
@@ -133,13 +133,13 @@ If you see `READY>` and `Enter prompt:`, the firmware is running correctly.
 
 Instead of running the build and flash commands manually, you can use FWAuto. From the project root, start FWAuto in chat mode:
 
-```command
+```bash
 fwauto
 ```
 
 Then run these slash commands:
 
-```
+```bash
 /build
 /deploy
 ```
@@ -148,7 +148,7 @@ Then run these slash commands:
 
 The build output is identical to the manual CMake build:
 
-```
+```output
 Building project...
 Running: cmd /c "cd .../alif_vscode-template && cmake --build tmp --target stories260k_runner.debug+E8-HE"
 [0/6] Performing build step for 'stories260k_runner.debug+E8-HE'
@@ -161,7 +161,7 @@ Build succeeded
 
 The deploy output is identical to the manual `deploy_setools.py` run:
 
-```
+```output
 Deploying firmware...
 [PREP] Source: .../stories260k_runner.bin (1149296 bytes)
 [PREP] ATOC OK.

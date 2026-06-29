@@ -13,9 +13,9 @@ Now that you have a working SLM deployment on the Alif E8, here are some directi
 
 ### Try FWAuto's AI-assisted workflow
 
-Launch FWAuto from the project root and type natural language requests:
+Launch [FWAuto](https://fwauto.ai/) from the project root and type natural language requests:
 
-```command
+```bash
 fwauto
 ```
 
@@ -32,7 +32,7 @@ After making changes, rebuild and re-flash with `/build` and `/deploy`.
 
 ### Customize the web dashboard
 
-The web GUI is in `web_demo.html` and `web_demo_server.py`. You can add new quick-prompt buttons, change the visual theme, or integrate with other tools via the REST API.
+The web GUI is in `web_demo.html` and `web_demo_server.py`. You can add new quick-prompt buttons, change the visual theme, or integrate with other tools via the [REST API](https://restfulapi.net/).
 
 The server exposes these API endpoints:
 
