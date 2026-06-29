@@ -51,6 +51,8 @@ The SLM dashboard shows:
 - **Result cards** showing model output, timing, and timestamps
 - **Model info** (260K parameters, 5 layers, dim=64, BPE tokenizer)
 
+![The SLM web dashboard running in a browser, showing quick-prompt buttons, a real-time terminal panel, and model output result cards.](WebDemopic.png)
+
 ### Send your first prompt
 
 1. Click the **cat** quick-prompt button, or type `cat` in the text input field and press Enter.
