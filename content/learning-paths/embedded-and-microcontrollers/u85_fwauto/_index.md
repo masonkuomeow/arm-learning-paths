@@ -60,6 +60,10 @@ further_reading:
         title: FWAuto on LinkedIn
         link: https://www.linkedin.com/company/fwauto
         type: website
+    - resource:
+        title: FWAuto on GitHub
+        link: https://github.com/orgs/FWAutoOPEN/
+        type: github
 
 ### FIXED, DO NOT MODIFY
 # ================================================================================
