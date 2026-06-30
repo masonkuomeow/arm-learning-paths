@@ -67,6 +67,30 @@ Called from:
 {{if and $is_content (not (hasPrefix .File.TranslationBaseName "_"))}}
     <script src="/js/prism.js" defer></script>                        <!-- Include code highlighting javascript, Prism-->
     <script src="/js/prism_post_output_formating.js" defer></script>  <!-- must be called after prism.js to modify it once rendered -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('pre > code').forEach(function(codeEl) {
+            var pre = codeEl.parentElement;
+            if (pre.querySelector('.copy-btn')) return;
+            var lang = (codeEl.className.match(/language-(\w+)/) || [])[1];
+            if (!lang || lang === 'output') return;
+            var btn = document.createElement('button');
+            btn.className = 'copy-btn';
+            btn.textContent = 'Copy';
+            btn.style.cssText = 'position:absolute;top:.3em;right:.5em;padding:2px 8px;font-size:.75em;background:rgba(224,224,224,.2);color:#bbb;border:none;border-radius:.4em;cursor:pointer;z-index:10;opacity:0;transition:opacity .2s';
+            btn.addEventListener('click', function() {
+                navigator.clipboard.writeText(codeEl.textContent).then(function() {
+                    btn.textContent = 'Copied!';
+                    setTimeout(function() { btn.textContent = 'Copy'; }, 1500);
+                });
+            });
+            pre.style.position = 'relative';
+            pre.appendChild(btn);
+            pre.addEventListener('mouseenter', function() { btn.style.opacity = '1'; });
+            pre.addEventListener('mouseleave', function() { btn.style.opacity = '0'; });
+        });
+    });
+    </script>
 {{end}}
 
 <!-- Demo page only -->
