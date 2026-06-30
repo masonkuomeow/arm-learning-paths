@@ -45,22 +45,14 @@ Called from:
 
 <!-- Start with the 'pre' element, then 'code' element, then the code content -->
 <pre
-    {{if or (.command_line) (.line_start)}}
-      {{if and (.command_line) (.line_start)}}
-          class="command-line line-numbers"
-      {{else if .command_line}}
-          class="command-line"
-      {{else if .line_start}}
-          class="line-numbers"
-      {{end}}
-      {{if .command_line}}
-          data-user= {{ trim (index (split (index (split .command_line "|") 0) "@") 0 ) " "}}
-          data-host= {{ trim (index (split (index (split .command_line "|") 0) "@") 1 ) " "}}
-          data-output={{ trim (index (split .command_line "|") 1) " "}}
-      {{end}}
-      {{if .line_start}}
-          data-start="{{.line_start}}"
-      {{end}}
+    class="language-{{.language}}{{if .command_line}} command-line{{end}}{{if .line_start}} line-numbers{{end}}"
+    {{if .command_line}}
+        data-user= {{ trim (index (split (index (split .command_line "|") 0) "@") 0 ) " "}}
+        data-host= {{ trim (index (split (index (split .command_line "|") 0) "@") 1 ) " "}}
+        data-output={{ trim (index (split .command_line "|") 1) " "}}
+    {{end}}
+    {{if .line_start}}
+        data-start="{{.line_start}}"
     {{end}}
 >
     <code class='language-{{.language}}
