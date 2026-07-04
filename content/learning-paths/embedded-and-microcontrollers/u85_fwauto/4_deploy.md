@@ -55,6 +55,7 @@ You should see output similar to:
 
 ```output
 [0/6] Performing build step for 'stories260k_runner.debug+E8-HE'
+
 Building CMake target 'stories260k_runner.debug+E8-HE'
 Using compiler: GCC V14.2.1
 
@@ -64,6 +65,7 @@ Using compiler: GCC V14.2.1
 [40/40] Linking C executable stories260k_runner.elf
 
 MRAM: 1149296 B / 2 MB (54.80%)
+
 [5/5] Completed 'stories260k_runner.debug+E8-HE'
 ```
 
@@ -144,14 +146,18 @@ You should see output similar to:
  stories260K LLM - Alif E8 Board
  Object Classification Demo
 ============================================
+
 Model: 260K params, dim=64, 5 layers
 Tokenizer: 512 tokens (BPE)
 
 [MAIN] Initializing model...
 [LLM] Config: dim=64 hidden=172 layers=5 heads=8 kv=4 vocab=512 seq=512
+
 [MAIN] Model initialized OK
+
 [MAIN] Initializing tokenizer...
 [TOK] Loaded 512 tokens
+
 [MAIN] Tokenizer initialized OK
 
 ============================================
@@ -249,11 +255,13 @@ Building project...
 Running: cmd /c "cd .../alif_vscode-template && cmake --build tmp --target stories260k_runner.debug+E8-HE"
 
 [0/6] Performing build step for 'stories260k_runner.debug+E8-HE'
+
 [1/40] Building C object .../llm_infer.c.obj
 ...
 [40/40] Linking C executable stories260k_runner.elf
 
 MRAM: 1149296 B / 2 MB (54.80%)
+
 Build succeeded
 ```
 
@@ -263,9 +271,11 @@ The deploy output is identical to the manual `deploy_setools.py` run:
 Deploying firmware...
 
 [PREP] Source: .../stories260k_runner.bin (1149296 bytes)
+
 [PREP] ATOC OK.
 
 [MAINT] Soft Maintenance Mode ACTIVE.
+
 [FLASH] Completed (rc=0).
 
   DEPLOY SUCCESSFUL

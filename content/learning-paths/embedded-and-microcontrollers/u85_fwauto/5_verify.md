@@ -69,8 +69,11 @@ The SLM dashboard shows:
 
    ```output
    Classifying 'cat'...
+
    Output: lways remember to be careful.
+
    (1500 ms total, 60.0 ms/token)
+
    DONE>
    READY>
    ```
