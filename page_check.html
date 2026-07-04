@@ -1,0 +1,150 @@
+<!doctype html><html lang=en theme=dark><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=google-site-verification content="BTfVb1OscFD-pN_bYZaTGmfx2_K3S1EbzvdKPepntvk"><link rel=canonical href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/2_instruction/><title>Overview and install dependencies | FWAuto Learning Paths</title>
+<link rel=preconnect href=https://fonts.gstatic.com><link rel=preload href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" as=style crossorigin=anonymous><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" crossorigin=anonymous><link rel=stylesheet href=https://cdn.designsystem.arm.com/rel/4.9.0/arm-design-system.css integrity=sha384-TIxVkbw6g/OlN2t0XSUGTik6Kc0pkpNEcm1bOAGO02jsHholeZipXigdXRDYqCGr crossorigin=anonymous><script type=module src=https://cdn.designsystem.arm.com/rel/4.9.0/arm-design-system/arm-design-system.esm.js integrity=sha384-K+IGYCWaqyh5adrYnimAXzUamdfAwRYJGwwrybHfAhmsehOIcexAPoEoEyLRJwkC crossorigin=anonymous></script><script type=text/javascript src=https://www.arm.com/arm-global-web-components/devhub/app.js></script><link rel=stylesheet href=https://masonkuomeow.github.io/arm-learning-paths/css/mini_content.min.acc0a91c9a5bdeb02136d015a053db510c99cbe5859eb1a724c2608cac5d14c7.css><link rel=stylesheet href=https://masonkuomeow.github.io/arm-learning-paths/css/mini_prism.min.b5afdd84802162ac3e0ebaed2383cac41f96433a74fd504d324b2da18be8def5.css media=print onload='this.media="all"'><link rel=apple-touch-icon sizes=57x57 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=60x60 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=76x76 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=76x76 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=114x114 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=120x120 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=144x144 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=152x152 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=apple-touch-icon sizes=180x180 href="https://developer.arm.com/shared/common/img/favicon/apple-touch-icon.png?v=0.0.0.0"><link rel=icon type=image/png href="https://developer.arm.com/shared/common/img/favicon/favicon-32x32.png?v=0.0.0.0" sizes=32x32><link rel=icon type=image/png href="https://developer.arm.com/shared/common/img/favicon/android-chrome-192x192.png?v=0.0.0.0" sizes=192x192><link rel=icon type=image/png href="https://developer.arm.com/shared/common/img/favicon/favicon-48x48.png?v=0.0.0.0" sizes=48x48><link rel=icon type=image/png href="https://developer.arm.com/shared/common/img/favicon/android-chrome-256x256.png?v=0.0.0.0" sizes=256x256><link rel=icon type=image/png href="https://developer.arm.com/shared/common/img/favicon/favicon-16x16.png?v=0.0.0.0" sizes=16x16><link rel="shortcut icon" type=image/ico href="https://developer.arm.com/shared/common/img/favicon/favicon.ico?v=0.0.0.0"><link rel=manifest href="https://developer.arm.com/shared/common/img/favicon/manifest.json?v=0.0.0.0"><meta property="og:url" content="https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/2_instruction/"><meta property="og:type" content="article"><meta name=twitter:card content="summary_large_image"><meta property="og:title" content=": Overview and install dependencies"><meta name=twitter:title content=": Overview and install dependencies"><meta property="og:description" content><meta name=twitter:description content><meta name=twitter:image content="https://masonkuomeow.github.io/img/social-image.png"><meta property="og:image" content="https://masonkuomeow.github.io/img/social-image.png"><meta property="og:image:type" content="image/jpg"><meta property="og:image:width" content="1280"><meta property="og:image:height" content="640"><meta name=author content><meta name=twitter:creator content="@ArmSoftwareDev"><script src=https://assets.adobedtm.com/268f09c22e73/433ef363670d/launch-EN10e66088202b43a3b7f30a6ded39776d.min.js async></script><script type=text/plain class=optanon-category-C0002>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:3678658,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script><script id=MathJax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js></script><script>MathJax={tex:{displayMath:[["\\[","\\]"],["$$","$$"]],inlineMath:[["\\(","\\)"]]},loader:{load:["ui/safe"]}}</script></head><body><div id=nav-masthead-breadcrumbs><div id=global-nav-height-fixer class=nav-transparent><arm-top-navigation observe=#breadcrumb-element></arm-top-navigation></div><div id=expanded-masthead><div class=is-responsive-width><ads-masthead style="background-color: rgba(0,0,0,0)" theme=dark><ads-breadcrumbs id=breadcrumb-element theme=dark slot=breadcrumbs sr-label=Breadcrumbs><ads-breadcrumb slot=breadcrumb label="Developer Hub home" link=https://www.arm.com/developer-hub>Developer Hub</ads-breadcrumb>
+<ads-breadcrumb slot=breadcrumb label=https://masonkuomeow.github.io/arm-learning-paths/ link=https://masonkuomeow.github.io/arm-learning-paths/>FWAuto Learning Paths</ads-breadcrumb>
+<ads-breadcrumb slot=breadcrumb label=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/ link=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/>Learning-Paths</ads-breadcrumb>
+<ads-breadcrumb slot=breadcrumb label=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/ link=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/>Embedded and Microcontrollers</ads-breadcrumb>
+<ads-breadcrumb slot=breadcrumb label=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/ link=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/>Deploy a Small Language Model on Alif E8 with an Interactive Web GUI</ads-breadcrumb>
+<ads-breadcrumb slot=breadcrumb label=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/2_instruction/ current=true>Overview and install dependencies</ads-breadcrumb></ads-breadcrumbs><h1 id=ads-masthead-title slot=heading><span>Overview and install dependencies</span></h1></ads-masthead></div></div></div><div id=all-content-div class="c-container is-responsive-width" style=min-height:250px><div id=all-content-div-margined class="u-margin-left-0 u-margin-right-0"><div class="c-row md:is-collapsed u-gap-1-1/2 u-flex-nowrap u-padding-top-1"><div class="c-col lg:c-col-3 xl:c-col-2 u-hide lg:u-display-block u-flex-shrink-0"><div class=left-nav-pane><h6 id=learning-path-title class=u-margin-top-1/2 style=font-size:1em;font-weight:400>Deploy a Small Language Model on Alif E8 with an Interactive Web GUI</h6><div hidden id=learning-path-author data-author='Mason Kuo, Odin Shen'></div><a class="a-tab inner-learning-path-navbar-element 0-weight" href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/><div class="c-row tab-row inactive"><div class="tab-right-card
+inactive"><h6 class=tab-right-card-header data-step-num=0>Introduction</h6></div></div></a><a class="a-tab inner-learning-path-navbar-element 1-weight" href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/2_instruction/><div class="c-row tab-row active"><div class="tab-right-card
+active"><h6 class=tab-right-card-header data-step-num=1 id=learning-path-step-active>Overview and install dependencies</h6></div></div></a><a class="a-tab inner-learning-path-navbar-element 2-weight" href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/3_setup/><div class="c-row tab-row inactive"><div class="tab-right-card
+inactive"><h6 class=tab-right-card-header data-step-num=2>Set up the developer flow</h6></div></div></a><a class="a-tab inner-learning-path-navbar-element 3-weight" href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/4_deploy/><div class="c-row tab-row inactive"><div class="tab-right-card
+inactive"><h6 class=tab-right-card-header data-step-num=3>Deploy SLM</h6></div></div></a><a class="a-tab inner-learning-path-navbar-element 4-weight" href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/5_verify/><div class="c-row tab-row inactive"><div class="tab-right-card
+inactive"><h6 class=tab-right-card-header data-step-num=4>Verify in web</h6></div></div></a><a class="a-tab inner-learning-path-navbar-element 5-weight" href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/_next-steps/><div class="c-row tab-row inactive"><div class="tab-right-card
+inactive"><h6 class=tab-right-card-header data-step-num=5>Next Steps</h6></div></div></a><div class=github-div><a href="https://github.com/masonkuomeow/arm-learning-paths/issues/new?template=issue-report.md&amp;title=Overview%20and%20install%20dependencies" target=_blank style=text-decoration:none><p class=github-link><span><i class="left-hand-icon fa-regular fa-scrubber"></i>
+&nbsp;&nbsp;Log an issue</span></p></a><a href=https://github.com/masonkuomeow/arm-learning-paths/edit/lp_fwauto/content/learning-paths/embedded-and-microcontrollers/u85_fwauto/2_instruction.md target=_blank style=text-decoration:none><p class=github-link><span><i class="left-hand-icon fa-solid fa-code-branch"></i>
+&nbsp;&nbsp;Fork and edit</span></p></a><a href=https://discord.com/invite/armsoftwaredev target=_blank style=text-decoration:none><p class=github-link><span><i class="left-hand-icon fa-brands fa-discord"></i>
+&nbsp;&nbsp;Discuss on Discord</span></p></a></div></div></div><div class="c-col lg:c-col-9 xl:c-col-10"><div class="content-head-container-mobile lg:u-hide"><div><div class="content-head-mobile lg:u-hide u-flex"><ads-button id=filter-button is-circular class="u-position-relative u-align-self-center lg:u-hide content-header-btn-mobile" level=tertiary size=default onclick=mobileFilterClickedContent(this)><i class="fas fa-list" style=color:#fff></i></ads-button><h6 class="u-margin-top-1/2 u-margin-left-1 u-position-relative lg:u-hide content-header-txt-mobile">Deploy a Small Language Model on Alif E8 with an Interactive Web GUI</h6></div><div id=filters-container class=u-hide><div id=filters-overlay class=overlay-styling tabindex=-1></div><div class=facets-positioning-container><div id=facets-background><a href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/ class="content-individual-a-mobile inner-learning-path-navbar-element 0-weight"><div class="content-individual-mobile inactive"><p class="content-individual-txt-mobile inactive">Introduction</p></div></a><a href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/2_instruction/ class="content-individual-a-mobile inner-learning-path-navbar-element 1-weight"><div class="content-individual-mobile active"><p class="content-individual-txt-mobile active">Overview and install dependencies</p></div></a><a href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/3_setup/ class="content-individual-a-mobile inner-learning-path-navbar-element 2-weight"><div class="content-individual-mobile inactive"><p class="content-individual-txt-mobile inactive">Set up the developer flow</p></div></a><a href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/4_deploy/ class="content-individual-a-mobile inner-learning-path-navbar-element 3-weight"><div class="content-individual-mobile inactive"><p class="content-individual-txt-mobile inactive">Deploy SLM</p></div></a><a href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/5_verify/ class="content-individual-a-mobile inner-learning-path-navbar-element 4-weight"><div class="content-individual-mobile inactive"><p class="content-individual-txt-mobile inactive">Verify in web</p></div></a><a href=https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/_next-steps/ class="content-individual-a-mobile inner-learning-path-navbar-element 5-weight"><div class="content-individual-mobile inactive"><p class="content-individual-txt-mobile inactive">Next Steps</p></div></a></div></div></div></div></div><div class="content-box markdown-content-div"><h2 id=overview>Overview</h2><p>In this Learning Path, you deploy a small language model (SLM) on the
+<a href=https://alifsemi.com/support/kits/ensemble-e8devkit/ target=_blank rel=noopener>Alif E8 Development Kit
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>and interact with it through a web browser.</p><p>The Alif E8 DevKit contains an
+<a href=https://developer.arm.com/Processors/Cortex-M55 target=_blank rel=noopener>Arm Cortex-M55
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>microcontroller with enough memory to run a tiny 260,000-parameter language model. You install all required tools, build and flash the firmware, then start a web server to send prompts from your browser.</p><h3 id=what-is-stories260k>What is stories260K?</h3><p><a href=https://github.com/karpathy/llama2.c target=_blank rel=noopener>stories260K
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>is a tiny language model created by Andrej Karpathy as part of the llama2.c project. It has 260,000 parameters, 5 transformer layers, and a 512-token vocabulary. It is trained on simple children&rsquo;s stories, so it generates short, coherent text continuations.</p><p>The model is small enough to run entirely on the Cortex-M55 HE core of the Alif E8. The KV cache sits in SRAM and the model weights sit in MRAM.</p><h3 id=architecture>Architecture</h3><p>The system connects a browser dashboard to the Alif E8 board through a
+<a href=https://flask.palletsprojects.com/ target=_blank rel=noopener>Flask
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>web server. The web GUI provides a user-friendly interface where you type prompts and view model-generated responses in real time, without needing a serial terminal.</p><pre>
+    <code class=language-console>
+
+        
+        &#10;  Browser (localhost:5000)&#10;      |&#10;      | HTTP / SSE&#10;      v&#10;  Flask web server (web_demo_server.py)&#10;      |&#10;      | UART serial (COM3, 115200 baud)&#10;      v&#10;  Alif E8 Board (Cortex-M55 HE)&#10;      |&#10;      | stories260K inference engine&#10;      v&#10;  Model weights (MRAM) &#43; KV cache (SRAM)&#10;
+    </code>
+</pre><p>The browser connects to the Flask server via
+<a href=https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events target=_blank rel=noopener>Server-Sent Events (SSE)
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>for real-time streaming. The server sends prompts to the board over UART and streams model output back to the browser.</p><h2 id=install-python>Install Python</h2><p><a href=https://fwauto.ai/ target=_blank rel=noopener>FWAuto
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>requires
+<a href=https://www.python.org/ target=_blank rel=noopener>Python
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>3.10 or later.</p><ol><li>Go to
+<a href=https://www.python.org/downloads/ target=_blank rel=noopener>python.org/downloads
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i></a></li><li>Download the latest Python 3.x installer for Windows</li><li>Run the installer</li><li><strong>Check &ldquo;Add Python to PATH&rdquo;</strong> during installation</li><li>Click &ldquo;Install Now&rdquo;</li></ol><p>Verify in a new Command Prompt:</p><pre>
+    <code class=language-bash>
+
+        
+        &#10;python --version&#10;
+    </code>
+</pre><p>You should see output similar to:</p><pre>
+    <code class='language-output
+output-lines'>
+
+        
+        Python 3.12.4&#10;
+        
+    </code>
+</pre><h2 id=install-nodejs>Install Node.js</h2><p>FWAuto requires
+<a href=https://nodejs.org/ target=_blank rel=noopener>Node.js
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>20 or later.</p><ol><li>Go to
+<a href=https://nodejs.org/en/download target=_blank rel=noopener>nodejs.org/en/download
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i></a></li><li>Download the <strong>Windows Installer (.msi)</strong> for version 20 or later</li><li>Run the installer with default settings. Make sure <strong>&ldquo;Add to PATH&rdquo;</strong> is selected.</li><li>Close and reopen your terminal after installation.</li></ol><p>Verify:</p><pre>
+    <code class=language-bash>
+
+        
+        &#10;node --version&#10;
+    </code>
+</pre><p>You should see output similar to:</p><pre>
+    <code class='language-output
+output-lines'>
+
+        
+        v20.15.0&#10;
+        
+    </code>
+</pre><h2 id=install-uv>Install uv</h2><p><a href=https://docs.astral.sh/uv/ target=_blank rel=noopener>uv
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>is a Python package manager that FWAuto uses. Install it in PowerShell (run as Administrator):</p><pre>
+    <code class=language-bash>
+
+        
+        &#10;powershell -ExecutionPolicy ByPass -c &#34;irm https://astral.sh/uv/install.ps1 | iex&#34;&#10;
+    </code>
+</pre><p>Close and reopen PowerShell after installation. Verify:</p><pre>
+    <code class=language-bash>
+
+        
+        &#10;uv --version&#10;
+    </code>
+</pre><p>You should see output similar to:</p><pre>
+    <code class='language-output
+output-lines'>
+
+        
+        uv 0.4.0&#10;
+        
+    </code>
+</pre><h2 id=install-segger-j-link-software>Install SEGGER J-Link software</h2><p>The
+<a href=https://www.segger.com/downloads/jlink/ target=_blank rel=noopener>SEGGER J-Link
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>software provides the debug probe driver and tools for communicating with the Alif E8 board.</p><ol><li>Go to
+<a href=https://www.segger.com/downloads/jlink/ target=_blank rel=noopener>segger.com/downloads/jlink
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i></a></li><li>Download the <strong>J-Link Software and Documentation Pack</strong> for Windows</li><li>Run the installer with default settings</li></ol><p>Verify:</p><pre>
+    <code class=language-bash>
+
+        
+        &#10;JLinkExe --version&#10;
+    </code>
+</pre><h2 id=install-build-tools>Install build tools</h2><p>The firmware build requires
+<a href=https://cmake.org/ target=_blank rel=noopener>CMake
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>,
+<a href=https://ninja-build.org/ target=_blank rel=noopener>Ninja
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>, and the
+<a href=https://developer.arm.com/downloads/-/gnu-rm target=_blank rel=noopener>Arm GNU Toolchain
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>.</p><ol><li><p>Install CMake from
+<a href=https://cmake.org/download/ target=_blank rel=noopener>cmake.org/download
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i>
+</a>. Select &ldquo;Add CMake to the system PATH&rdquo; during installation.</p></li><li><p>Install Ninja:</p></li></ol><pre>
+    <code class=language-bash>
+
+        
+        &#10;winget install Ninja-build.Ninja&#10;
+    </code>
+</pre><ol start=3><li>Install the Arm GNU toolchain:<ul><li>Go to
+<a href=https://developer.arm.com/downloads/-/gnu-rm target=_blank rel=noopener>developer.arm.com/downloads
+<i class="external-link-icon fa-solid fa-up-right-from-square fa-xs" aria-hidden=true></i></a></li><li>Download the <strong>Arm GNU Toolchain</strong> installer for Windows</li><li>Run the installer and make sure &ldquo;Add to PATH&rdquo; is selected</li></ul></li></ol><p>Verify all three tools:</p><pre>
+    <code class=language-bash>
+
+        
+        &#10;cmake --version&#10;ninja --version&#10;arm-none-eabi-gcc --version&#10;
+    </code>
+</pre><h2 id=verify-your-setup>Verify your setup</h2><p>Before proceeding, verify that all tools are installed:</p><pre>
+    <code class=language-bash>
+
+        
+        &#10;python --version&#10;node --version&#10;uv --version&#10;cmake --version&#10;ninja --version&#10;arm-none-eabi-gcc --version&#10;JLinkExe --version&#10;
+    </code>
+</pre><p>With all dependencies installed, you are ready to set up FWAuto and prepare the hardware.</p></div><div class="c-row u-margin-top-2 u-margin-bottom-2"><div class=c-col><ads-button name="Deploy a Small Language Model on Alif E8 with an Interactive Web GUI" class="inner-learning-path-navbtn-element 0-weight" style=float:left onclick='window.location.href="https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/"' level=tertiary>Back</ads-button></div><div class=c-col><ads-button name="Set up the developer flow" class="inner-learning-path-navbtn-element 2-weight" style=float:right; onclick='window.location.href="https://masonkuomeow.github.io/arm-learning-paths/learning-paths/embedded-and-microcontrollers/u85_fwauto/3_setup/"' level=primary>Next</ads-button></div></div></div></div></div></div><div id=arm-footer><arm-footer-navigation></arm-footer-navigation></div><script src=https://cdn.cookielaw.org/scripttemplates/otSDKStub.js data-document-language=true type=text/javascript data-domain-script=7d663903-ba9e-4bc2-a2f8-5844edbb5408></script><script type=text/javascript>function OptanonWrapper(){}</script><script>window.onload=function(){let e=document.querySelector(".CoveoAnalytics");if(e){let t=Coveo.get(e);t&&window&&window.OnetrustActiveGroups&&!window.OnetrustActiveGroups.includes("C0002")&&t.disable()}}</script><script src=/js/globalVarsandPreferences.js defer></script><script src=/js/anonymous-analytics.js defer></script><script src=/js/armid-and-navsearch.js defer></script><script type=text/javascript src=https://content.dev.bespin.arm.com/VirtualFAE/learnarm/stage/chat-ai.js defer></script><script src=/vendor/msal-browser.min.js defer></script><script src=/js/authentication.js defer></script><script src=/js/prism.js defer></script><script src=/js/prism_post_output_formating.js defer></script><script src=/js/filter-and-navigate-mobile-behavior.js defer></script><script src=/js/feedback-form-behavior.js defer></script><script>(function(){function n(){var e,s,o,t=document.getElementById("expanded-masthead"),n=document.getElementById("ads-masthead-title");if(!t||!n)return;if(s=window.getComputedStyle(n),e=parseFloat(s.lineHeight),!e||Number.isNaN(e)){t.classList.remove("is-two-lines");return}o=n.scrollHeight>e*1.5,t.classList.toggle("is-two-lines",o)}var t=null;function e(){if(t)return;t=window.requestAnimationFrame(function(){t=null,n()})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",e):e(),window.addEventListener("resize",e),window.addEventListener("pageshow",e)})()</script></body></html>

@@ -1,10 +1,9 @@
 {{/*
 Codeblock formatting for prismjs - OVERridden.
-Original: themes/arm-design-system-hugo-theme/layouts/partials/general-formatting/prismjs-codeblock.html
 Changes:
   - Removed leading &#10; (was adding empty first line)
   - Changed {{- . -}} to {{- . }} to preserve newlines between lines
-  - Compact <code> tag to avoid leading space from class attribute
+  - Compact code tag to avoid leading space
 */}}
 
 {{$lines_to_mark_output := slice}}
@@ -33,17 +32,15 @@ Changes:
 {{- $codeClass := printf "language-%s" .language -}}
 {{- if .line_numbers -}}{{- $codeClass = printf "%s line-numbers" $codeClass -}}{{- end -}}
 {{- if $output_present -}}{{- $codeClass = printf "%s output-lines" $codeClass -}}{{- end -}}
+{{- $preAttrs := "" -}}
+{{- if .command_line -}}
+    {{- $preAttrs = printf " data-user=%s data-host=%s data-output=%s" (trim (index (split (index (split .command_line "|") 0) "@") 0 ) " ") (trim (index (split (index (split .command_line "|") 0) "@") 1 ) " ") (trim (index (split .command_line "|") 1) " ") -}}
+{{- end -}}
+{{- if .line_start -}}
+    {{- $preAttrs = printf "%s data-start=%q" $preAttrs .line_start -}}
+{{- end -}}
 
-<pre class="{{$preClass}}"
-{{- if .command_line}}
- data-user={{ trim (index (split (index (split .command_line "|") 0) "@") 0 ) " "}}
- data-host={{ trim (index (split (index (split .command_line "|") 0) "@") 1 ) " "}}
- data-output={{ trim (index (split .command_line "|") 1) " "}}
-{{- end}}
-{{- if .line_start}}
- data-start="{{.line_start}}"
-{{- end}}
-><code class="{{$codeClass}}">
+<pre class="{{$preClass}}"{{$preAttrs}}><code class="{{$codeClass}}">
 {{- if $output_present}}
     {{- with .code -}}
         {{- $inner := split . "\n" -}}
