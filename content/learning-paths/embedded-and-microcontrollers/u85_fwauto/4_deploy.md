@@ -57,10 +57,12 @@ You should see output similar to:
 [0/6] Performing build step for 'stories260k_runner.debug+E8-HE'
 Building CMake target 'stories260k_runner.debug+E8-HE'
 Using compiler: GCC V14.2.1
+
 [1/40] Building C object .../llm_infer.c.obj
 [2/40] Building C object .../main.c.obj
 ...
 [40/40] Linking C executable stories260k_runner.elf
+
 MRAM: 1149296 B / 2 MB (54.80%)
 [5/5] Completed 'stories260k_runner.debug+E8-HE'
 ```
@@ -99,10 +101,13 @@ You should see:
 ============================================================
   Alif SETOOLS Deploy
 ============================================================
+
 [PREP] Source: .../stories260k_runner.bin (1149296 bytes)
 [PREP] ATOC OK.
+
 [MAINT] Soft Maintenance Mode ACTIVE.
 [FLASH] Completed (rc=0).
+
 ============================================================
   DEPLOY SUCCESSFUL
 ============================================================
@@ -221,24 +226,33 @@ Once you have reviewed and confirmed the `fwauto` configuration, you can use sla
 fwauto
 ```
 
-Then run these slash commands:
+Then run the build command:
 
 ```bash
 /build
+```
+
+`/build` runs the same CMake command shown in the manual section. It is configured in `.fwauto/config.toml`.
+
+After the build completes, run the deploy command:
+
+```bash
 /deploy
 ```
 
-`/build` runs the same CMake command shown in the manual section. `/deploy` runs the same `deploy_setools.py` script. Both commands are configured in `.fwauto/config.toml`.
+`/deploy` runs the same `deploy_setools.py` script.
 
 The build output is identical to the manual CMake build:
 
 ```output
 Building project...
 Running: cmd /c "cd .../alif_vscode-template && cmake --build tmp --target stories260k_runner.debug+E8-HE"
+
 [0/6] Performing build step for 'stories260k_runner.debug+E8-HE'
 [1/40] Building C object .../llm_infer.c.obj
 ...
 [40/40] Linking C executable stories260k_runner.elf
+
 MRAM: 1149296 B / 2 MB (54.80%)
 Build succeeded
 ```
@@ -247,10 +261,13 @@ The deploy output is identical to the manual `deploy_setools.py` run:
 
 ```output
 Deploying firmware...
+
 [PREP] Source: .../stories260k_runner.bin (1149296 bytes)
 [PREP] ATOC OK.
+
 [MAINT] Soft Maintenance Mode ACTIVE.
 [FLASH] Completed (rc=0).
+
   DEPLOY SUCCESSFUL
 ```
 

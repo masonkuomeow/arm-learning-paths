@@ -32,8 +32,10 @@ You should see output similar to:
 ```output
 [SERVER] Starting on http://0.0.0.0:5000
 [SERVER] Running in LIVE mode (serial connection to board)
+
 [SERIAL] Auto-detected port: COM3 (J-Link CDC UART)
 [SERIAL] Connected to COM3 @ 115200
+
 [STATE] IDLE -> READY
 ```
 
