@@ -32,8 +32,8 @@ pre[class*=language-] {
     border: 1px solid #444;
     box-shadow: none;
     margin: .4em 0;
-    overflow: auto;
-    padding: 0.4em 0.6em
+    overflow: visible;
+    padding: 0.45em 0.65em
 }
 
 pre[class*=language-]::-moz-selection {
