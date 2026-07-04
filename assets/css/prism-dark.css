@@ -28,12 +28,12 @@ pre[class*=language-] {
 }
 
 pre[class*=language-] {
-    border-radius: .5em;
-    border: .3em solid #545454;
-    box-shadow: 1px 1px .5em #000 inset;
+    border-radius: 4px;
+    border: 1px solid #444;
+    box-shadow: none;
     margin: .5em 0;
     overflow: auto;
-    padding: 0.4em 0.8em
+    padding: 0.5em 0.8em
 }
 
 pre[class*=language-]::-moz-selection {

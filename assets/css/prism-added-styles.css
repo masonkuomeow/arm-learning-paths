@@ -4,12 +4,30 @@ html[theme="dark"] .copy-to-clipboard-button:hover { background-color: var(--arm
 pre > code > span.hidden-output-text { display: none; }
 pre > code > span.output { user-select: none; opacity: 0.8!important; }
 .command-line-prompt>span:before { opacity: 0.8!important; }
-pre:has(> code.language-output) { background: #2d2d2d !important; border-color: #666 !important; padding: 0.4em 0.8em !important; }
-pre:has(> code.language-bash) { background: #141414 !important; border: .3em solid #545454 !important; border-radius: .5em !important; box-shadow: 1px 1px .5em #000 inset !important; padding: 0.4em 0.8em !important; }
-pre:has(> code.language-bash) code { color: #fff; text-shadow: 0 -.1em .2em #000; }
-pre:has(> code.language-bash) code .token.comment { color: #777; }
-pre:has(> code.language-bash) code .token.string { color: #909e6a; }
-pre:has(> code.language-bash) code .token.keyword { color: #f9ed99; }
-pre:has(> code.language-bash) code .token.operator { color: #909e6a; }
-pre:has(> code.language-console) { background: #141414 !important; border: .3em solid #545454 !important; border-radius: .5em !important; box-shadow: 1px 1px .5em #000 inset !important; padding: 0.4em 0.8em !important; }
-pre:has(> code.language-console) code { color: #fff; text-shadow: 0 -.1em .2em #000; }
+
+/* Compact code blocks matching Arm Learning Path style */
+pre:has(> code.language-bash),
+pre:has(> code.language-console),
+pre:has(> code.language-output),
+pre:has(> code.language-text),
+pre:has(> code.language-yaml),
+pre:has(> code.language-c) {
+    background: #1e1e1e !important;
+    border: 1px solid #444 !important;
+    border-radius: 4px !important;
+    box-shadow: none !important;
+    padding: 0.5em 0.8em !important;
+    margin: 0.5em 0 0.5em 16px !important;
+}
+
+pre:has(> code.language-bash) code,
+pre:has(> code.language-console) code,
+pre:has(> code.language-output) code,
+pre:has(> code.language-text) code {
+    color: #d4d4d4;
+    text-shadow: none;
+}
+pre:has(> code.language-bash) code .token.comment { color: #6a9955; }
+pre:has(> code.language-bash) code .token.string { color: #ce9178; }
+pre:has(> code.language-bash) code .token.keyword { color: #569cd6; }
+pre:has(> code.language-bash) code .token.operator { color: #d4d4d4; }
