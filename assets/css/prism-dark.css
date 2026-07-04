@@ -33,7 +33,7 @@ pre[class*=language-] {
     box-shadow: 1px 1px .5em #000 inset;
     margin: .5em 0;
     overflow: auto;
-    padding: 1em
+    padding: 0.4em 0.8em
 }
 
 pre[class*=language-]::-moz-selection {

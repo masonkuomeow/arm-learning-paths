@@ -4,12 +4,12 @@ html[theme="dark"] .copy-to-clipboard-button:hover { background-color: var(--arm
 pre > code > span.hidden-output-text { display: none; }
 pre > code > span.output { user-select: none; opacity: 0.8!important; }
 .command-line-prompt>span:before { opacity: 0.8!important; }
-pre:has(> code.language-output) { background: #2d2d2d !important; border-color: #666 !important; }
-pre:has(> code.language-bash) { background: #141414 !important; border: .3em solid #545454 !important; border-radius: .5em !important; box-shadow: 1px 1px .5em #000 inset !important; padding: 1em !important; }
+pre:has(> code.language-output) { background: #2d2d2d !important; border-color: #666 !important; padding: 0.4em 0.8em !important; }
+pre:has(> code.language-bash) { background: #141414 !important; border: .3em solid #545454 !important; border-radius: .5em !important; box-shadow: 1px 1px .5em #000 inset !important; padding: 0.4em 0.8em !important; }
 pre:has(> code.language-bash) code { color: #fff; text-shadow: 0 -.1em .2em #000; }
 pre:has(> code.language-bash) code .token.comment { color: #777; }
 pre:has(> code.language-bash) code .token.string { color: #909e6a; }
 pre:has(> code.language-bash) code .token.keyword { color: #f9ed99; }
 pre:has(> code.language-bash) code .token.operator { color: #909e6a; }
-pre:has(> code.language-console) { background: #141414 !important; border: .3em solid #545454 !important; border-radius: .5em !important; box-shadow: 1px 1px .5em #000 inset !important; padding: 1em !important; }
+pre:has(> code.language-console) { background: #141414 !important; border: .3em solid #545454 !important; border-radius: .5em !important; box-shadow: 1px 1px .5em #000 inset !important; padding: 0.4em 0.8em !important; }
 pre:has(> code.language-console) code { color: #fff; text-shadow: 0 -.1em .2em #000; }
