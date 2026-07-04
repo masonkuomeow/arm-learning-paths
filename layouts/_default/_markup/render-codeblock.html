@@ -1,21 +1,9 @@
 {{/*
-Override: inject inline style block to bypass CSS caching for code blocks.
+Override: inject inline style for compact code blocks + call overridden partial.
 */}}
 <style>
-pre[class*=language-] {
-    padding: 0.4em 0.6em !important;
-    margin: 0.4em 0 0.4em 16px !important;
-    line-height: 1.3 !important;
-    font-size: 0.9em !important;
-    border: 1px solid #444 !important;
-    border-radius: 4px !important;
-    box-shadow: none !important;
-}
-code[class*=language-] {
-    line-height: 1.3 !important;
-    font-size: 1em !important;
-    text-shadow: none !important;
-}
+pre[class*=language-]{padding:0.3em 0.5em!important;margin:0.3em 0 0.3em 16px!important;line-height:1.25!important;font-size:0.85em!important;border:1px solid #444!important;border-radius:4px!important;box-shadow:none!important}
+code[class*=language-]{line-height:1.25!important;font-size:1em!important;text-shadow:none!important}
 </style>
 {{partial "general-formatting/prismjs-codeblock.html" (dict "input_from" "normal" "code" .Inner "language" .Type
 "line_numbers" .Attributes.line_numbers "output_lines" .Attributes.output_lines "command_line" .Attributes.command_line "line_start" .Attributes.line_start)
