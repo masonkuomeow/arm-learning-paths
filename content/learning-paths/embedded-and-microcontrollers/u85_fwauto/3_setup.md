@@ -132,7 +132,7 @@ Email: your.email@example.com
 Open a Command Prompt and clone the project:
 
 ```bash
-git clone https://github.com/odincodeshen/alif_slm_r.git
+git clone https://github.com/masonkuomeow/alif_slm_r.git
 cd alif_slm_r
 ```
 
