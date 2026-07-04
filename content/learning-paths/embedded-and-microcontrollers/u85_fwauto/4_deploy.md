@@ -31,16 +31,20 @@ Key source files:
 
 In a manual firmware deployment workflow, you are responsible for identifying the correct project settings, build commands, and deployment procedures. This means inspecting the repository structure, reading any available documentation, and executing a series of commands by hand.
 
-The `.fwauto/config.toml` configuration file starts out empty when you first clone the repository. In a manual workflow, you would need to populate this file yourself or pass all the required details as command-line arguments. You also need to determine the correct firmware directory, CMake target, binary output path, COM port, and board target on your own.
+The `.fwauto/config.toml` configuration file starts out empty when you first clone the repository. In a manual workflow, you would need to populate this file yourself or pass all the required details as command-line arguments. You also need to determine the correct firmware directory, CMake target, binary output path, serial port, and board target on your own.
 
 ### Build the firmware (manual)
 
-Open a Command Prompt, navigate to the project root, and build:
+Open a terminal, navigate to the project root, and build:
 
 ```bash
-cd alif_slm_r\alif_vscode-template
+cd alif_slm_r/alif_vscode-template
 cmake --build tmp --target stories260k_runner.debug+E8-HE
 ```
+
+{{% notice Note %}}
+On Windows, use `cd alif_slm_r\alif_vscode-template` (backslash) or `cd alif_slm_r/alif_vscode-template` (forward slash also works in PowerShell and Command Prompt).
+{{% /notice %}}
 
 This compiles the firmware for the [Cortex-M55](https://developer.arm.com/Processors/Cortex-M55) HE core. The build produces:
 
@@ -72,7 +76,15 @@ cd ..
 python deploy_setools.py "alif_vscode-template/out/stories260k_runner/E8-HE/debug/stories260k_runner.bin" --com COM3
 ```
 
-Replace `COM3` with your actual COM port number if different. The board's EN/DIS switch stays in the **EN** position -- the script enters SE maintenance mode automatically over UART.
+Replace `COM3` with your actual serial port:
+
+| Operating system | Serial port format | Example |
+|---|---|---|
+| Windows | `COMn` | `COM3` |
+| Linux | `/dev/ttyACMn` | `/dev/ttyACM0` |
+| macOS | `/dev/cu.usbmodemn` | `/dev/cu.usbmodem1101` |
+
+The board's EN/DIS switch stays in the **EN** position -- the script enters SE maintenance mode automatically over UART.
 
 The script:
 
@@ -100,7 +112,21 @@ After flashing, the board reboots automatically and runs the new firmware.
 
 ### Verify the firmware is running (manual)
 
-Open a serial terminal to check the board output:
+Open a serial terminal to check the board output.
+
+On Linux:
+
+```bash
+screen /dev/ttyACM0 115200
+```
+
+On macOS:
+
+```bash
+screen /dev/cu.usbmodem1101 115200
+```
+
+On Windows (PowerShell):
 
 ```bash
 powershell -Command "$p = New-Object System.IO.Ports.SerialPort('COM3',115200,'None',8,'One'); $p.ReadTimeout=5000; $p.Open(); Start-Sleep -Seconds 3; $d=$p.ReadExisting(); $p.Close(); Write-Host $d"
@@ -133,6 +159,10 @@ Enter prompt:
 
 If you see `READY>` and `Enter prompt:`, the firmware is running correctly.
 
+{{% notice Note %}}
+To exit `screen`, press `Ctrl+A` then `K`, then confirm with `y`.
+{{% /notice %}}
+
 ## Common issues with manual configuration
 
 Manual firmware workflows are prone to errors because of the many details that must be correctly identified and consistently applied.
@@ -154,7 +184,7 @@ This is useful because the `.fwauto/config.toml` file starts out empty. Rather t
 
 To leverage `fwauto`'s inspection capabilities, provide it with a prompt that describes the task:
 
-```
+```text
 Inspect this repository and generate the firmware update workflow for the Alif SLM project. The configuration file is currently empty. Determine which configuration values need to be updated, explain why each value is needed, and generate the commands required to prepare and deploy the firmware. Use the current repository structure as the source of truth.
 ```
 
@@ -179,7 +209,7 @@ Review these generated outputs before executing them. Confirm that:
 - The firmware directory matches `alif_vscode-template/`
 - The build target is `stories260k_runner.debug+E8-HE`
 - The deploy script path and arguments are correct
-- The COM port matches your hardware setup
+- The serial port matches your hardware setup
 
 This review step ensures that `fwauto` has correctly interpreted the project structure and that the generated workflow is safe to execute.
 
@@ -228,7 +258,21 @@ After flashing, the board reboots automatically and runs the new firmware.
 
 ## Verify the deployment
 
-After deploying the firmware, verify that it is running by opening a serial terminal to the board. Use the same verification command from the manual section:
+After deploying the firmware, verify that it is running by opening a serial terminal to the board.
+
+On Linux:
+
+```bash
+screen /dev/ttyACM0 115200
+```
+
+On macOS:
+
+```bash
+screen /dev/cu.usbmodem1101 115200
+```
+
+On Windows (PowerShell):
 
 ```bash
 powershell -Command "$p = New-Object System.IO.Ports.SerialPort('COM3',115200,'None',8,'One'); $p.ReadTimeout=5000; $p.Open(); Start-Sleep -Seconds 3; $d=$p.ReadExisting(); $p.Close(); Write-Host $d"
@@ -255,7 +299,7 @@ Use the following table to resolve common issues you might encounter during the 
 | Issue | Why it happens | How to fix it |
 |------|----------------|---------------|
 | Build fails with "target not found" | Wrong build directory or target name | Verify you are in `alif_vscode-template/` and the target name is `stories260k_runner.debug+E8-HE` |
-| Deploy fails with "COM port not found" | Board not connected or wrong port | Check Device Manager for the correct COM port number |
+| Deploy fails with "serial port not found" | Board not connected or wrong port | Check your serial port: `COM3` on Windows, `/dev/ttyACM0` on Linux, `/dev/cu.usbmodem1101` on macOS |
 | Board shows garbled output | Wrong firmware binary flashed | Ensure you built from `alif_vscode-template/`, not `workshop-ethos-u/` |
 | fwauto build fails | `.fwauto/config.toml` is missing or misconfigured | Run `fwauto build` from the project root to re-run the setup wizard |
 

@@ -42,13 +42,22 @@ The browser connects to the Flask server via [Server-Sent Events (SSE)](https://
 
 [FWAuto](https://fwauto.ai/) requires [Python](https://www.python.org/) 3.10 or later.
 
-1. Go to [python.org/downloads](https://www.python.org/downloads/)
-2. Download the latest Python 3.x installer for Windows
-3. Run the installer
-4. **Check "Add Python to PATH"** during installation
-5. Click "Install Now"
+On Linux (Debian or Ubuntu):
 
-Verify in a new Command Prompt:
+```bash
+sudo apt update
+sudo apt install python3 python3-pip
+```
+
+On macOS, use Homebrew:
+
+```bash
+brew install python
+```
+
+On Windows, download the installer from [python.org/downloads](https://www.python.org/downloads/). Make sure to check **"Add Python to PATH"** during installation.
+
+Verify:
 
 ```bash
 python --version
@@ -64,10 +73,24 @@ Python 3.12.4
 
 FWAuto requires [Node.js](https://nodejs.org/) 20 or later.
 
-1. Go to [nodejs.org/en/download](https://nodejs.org/en/download)
-2. Download the **Windows Installer (.msi)** for version 20 or later
-3. Run the installer with default settings. Make sure **"Add to PATH"** is selected.
-4. Close and reopen your terminal after installation.
+On Linux (Debian or Ubuntu):
+
+```bash
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+```
+
+On macOS, use Homebrew:
+
+```bash
+brew install node@20
+```
+
+On Windows, use winget:
+
+```bash
+winget install OpenJS.NodeJS.LTS
+```
 
 Verify:
 
@@ -83,13 +106,21 @@ v20.15.0
 
 ## Install uv
 
-[uv](https://docs.astral.sh/uv/) is a Python package manager that FWAuto uses. Install it in PowerShell (run as Administrator):
+[uv](https://docs.astral.sh/uv/) is a Python package manager that FWAuto uses.
+
+On Linux and macOS:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+On Windows (PowerShell):
 
 ```bash
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Close and reopen PowerShell after installation. Verify:
+Close and reopen your terminal after installation. Verify:
 
 ```bash
 uv --version
@@ -106,7 +137,7 @@ uv 0.4.0
 The [SEGGER J-Link](https://www.segger.com/downloads/jlink/) software provides the debug probe driver and tools for communicating with the Alif E8 board.
 
 1. Go to [segger.com/downloads/jlink](https://www.segger.com/downloads/jlink/)
-2. Download the **J-Link Software and Documentation Pack** for Windows
+2. Download the **J-Link Software and Documentation Pack** for your operating system
 3. Run the installer with default settings
 
 Verify:
@@ -119,18 +150,45 @@ JLinkExe --version
 
 The firmware build requires [CMake](https://cmake.org/), [Ninja](https://ninja-build.org/), and the [Arm GNU Toolchain](https://developer.arm.com/downloads/-/gnu-rm).
 
-1. Install CMake from [cmake.org/download](https://cmake.org/download/). Select "Add CMake to the system PATH" during installation.
+Install CMake:
 
-2. Install Ninja:
+On Linux (Debian or Ubuntu):
+
+```bash
+sudo apt install cmake
+```
+
+On macOS, use Homebrew:
+
+```bash
+brew install cmake
+```
+
+On Windows, download from [cmake.org/download](https://cmake.org/download/) and select "Add CMake to the system PATH" during installation.
+
+Install Ninja:
+
+On Linux (Debian or Ubuntu):
+
+```bash
+sudo apt install ninja-build
+```
+
+On macOS, use Homebrew:
+
+```bash
+brew install ninja
+```
+
+On Windows, use winget:
 
 ```bash
 winget install Ninja-build.Ninja
 ```
 
-3. Install the Arm GNU toolchain:
-   - Go to [developer.arm.com/downloads](https://developer.arm.com/downloads/-/gnu-rm)
-   - Download the **Arm GNU Toolchain** installer for Windows
-   - Run the installer and make sure "Add to PATH" is selected
+Install the Arm GNU Toolchain:
+
+Go to [developer.arm.com/downloads](https://developer.arm.com/downloads/-/gnu-rm) and download the installer for your operating system. On Windows, make sure "Add to PATH" is selected during installation. On Linux and macOS, extract the archive and add the `bin` directory to your `PATH`.
 
 Verify all three tools:
 
@@ -155,4 +213,3 @@ JLinkExe --version
 ```
 
 With all dependencies installed, you are ready to set up FWAuto and prepare the hardware.
-

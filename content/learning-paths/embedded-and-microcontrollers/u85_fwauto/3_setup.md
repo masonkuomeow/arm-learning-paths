@@ -8,11 +8,29 @@ layout: "learningpathall"
 
 Before installing FWAuto, prepare the [Alif E8 DevKit](https://alifsemi.com/support/kits/ensemble-e8devkit/) hardware.
 
-1. Connect the Alif E8 DevKit to your Windows PC using the USB cable.
+1. Connect the Alif E8 DevKit to your computer using the USB cable.
 
 2. Use the port labeled **JLINK**. This provides both J-Link debug and a virtual COM port.
 
-3. Open **Device Manager** and verify you see:
+3. Verify the board is detected:
+
+On Linux:
+
+```bash
+ls /dev/ttyACM*
+```
+
+You should see a device such as `/dev/ttyACM0`.
+
+On macOS:
+
+```bash
+ls /dev/cu.usbmodem*
+```
+
+You should see a device such as `/dev/cu.usbmodem1101`.
+
+On Windows, open **Device Manager** and verify you see:
    - **J-Link CDC UART** under Ports (COM & LPT) -- note the COM port number (usually COM3)
    - **SEGGER J-Link** under USB devices
 
@@ -92,7 +110,15 @@ Both methods produce the same result. Slash commands are shorter; natural langua
 
 ## Install FWAuto
 
-Install FWAuto using the official install script. In PowerShell:
+Install FWAuto using the official install script.
+
+On Linux and macOS:
+
+```bash
+curl -fsSL https://fwauto.ai/install.sh | sh
+```
+
+On Windows (PowerShell):
 
 ```bash
 powershell -ExecutionPolicy ByPass -c "irm https://fwauto.ai/install.ps1 | iex"
@@ -129,7 +155,7 @@ Email: your.email@example.com
 
 ## Clone the project repository
 
-Open a Command Prompt and clone the project:
+Clone the project:
 
 ```bash
 git clone https://github.com/masonkuomeow/alif_slm_r.git
@@ -174,7 +200,7 @@ If the wizard does not appear, check that you are inside the `alif_slm_r` direct
 Before proceeding, verify that:
 
 - [ ] Alif E8 board is connected via USB (JLINK port)
-- [ ] COM port appears in Device Manager (for example, COM3)
+- [ ] Board is detected (COM port on Windows, `/dev/ttyACM*` on Linux, `/dev/cu.usbmodem*` on macOS)
 - [ ] EN/DIS switch is set to EN
 - [ ] Python 3.10+ is installed and on PATH
 - [ ] Node.js 20+ is installed and on PATH

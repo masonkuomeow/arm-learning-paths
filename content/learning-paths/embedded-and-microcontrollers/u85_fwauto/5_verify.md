@@ -10,14 +10,20 @@ In the previous sections you built and flashed the SLM firmware. In this section
 
 ## Start the web server
 
-Open a Command Prompt, navigate to the project root, and start the server:
+Open a terminal, navigate to the project root, and start the server:
 
 ```bash
 cd alif_slm_r
 python web_demo_server.py --serial-port COM3 --no-reset
 ```
 
-Replace `COM3` with your actual COM port if different.
+Replace `COM3` with your actual serial port:
+
+| Operating system | Serial port format | Example |
+|---|---|---|
+| Windows | `COMn` | `COM3` |
+| Linux | `/dev/ttyACMn` | `/dev/ttyACM0` |
+| macOS | `/dev/cu.usbmodemn` | `/dev/cu.usbmodem1101` |
 
 The `--no-reset` flag tells the server not to toggle DTR/RTS on the serial port. The J-Link CDC UART does not support hardware reset via DTR/RTS.
 
@@ -120,8 +126,11 @@ This simulates board responses with realistic timing. It is useful for UI develo
 **Server shows "No board detected"**
 
 - Check that the board is connected via USB (JLINK port)
-- Verify the COM port in Device Manager
-- Make sure no other program is using the COM port (close PuTTY, Tera Term, or similar tools)
+- Verify the serial port:
+  - Windows: check **Device Manager** under Ports (COM & LPT)
+  - Linux: check `/dev/ttyACM*`
+  - macOS: check `/dev/cu.usbmodem*`
+- Make sure no other program is using the serial port (close PuTTY, Tera Term, `screen`, or similar tools)
 
 **Board output shows garbled text**
 
@@ -135,8 +144,14 @@ This simulates board responses with realistic timing. It is useful for UI develo
 
 **Port access denied**
 
-- Make sure no other terminal program is using COM3
-- Close any open serial monitors before starting the server
+- Make sure no other terminal program is using the serial port
+- On Linux, you may need to add your user to the `dialout` group:
+
+```bash
+sudo usermod -aG dialout $USER
+```
+
+Log out and log back in for the group change to take effect.
 
 ## Summary
 
