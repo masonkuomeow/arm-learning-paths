@@ -4,7 +4,7 @@ Original: themes/arm-design-system-hugo-theme/layouts/partials/general-formattin
 Changes:
   - Removed leading &#10; (was adding empty first line)
   - Changed {{- . -}} to {{- . }} to preserve newlines between lines
-  - Single-line <code> tag to avoid leading space from class attribute
+  - Compact <code> tag to avoid leading space from class attribute
 */}}
 
 {{$lines_to_mark_output := slice}}
@@ -27,9 +27,42 @@ Changes:
     {{$output_present = true}}
 {{end}}
 
-<pre class="language-{{.language}}{{if .command_line}} command-line{{end}}{{if .line_start}} line-numbers{{end}}"{{if .command_line}} data-user={{ trim (index (split (index (split .command_line "|") 0) "@") 0 ) " "}} data-host={{ trim (index (split (index (split .command_line "|") 0) "@") 1 ) " "}} data-output={{ trim (index (split .command_line "|") 1) " "}}{{end}}{{if .line_start}} data-start="{{.line_start}}"{{end}}><code class="language-{{.language}}{{if .line_numbers}} line-numbers{{end}}{{if $output_present}} output-lines{{end}}">{{if $output_present}}{{- with .code -}}{{- $inner := split . "\n" -}}{{- $count := 0 -}}{{- range $inner -}}{{- if eq $.input_from "normal" -}}{{- $count = add $count 1 -}}{{- end -}}{{- if in $lines_to_mark_output $count -}}
+{{- $preClass := printf "language-%s" .language -}}
+{{- if .command_line -}}{{- $preClass = printf "%s command-line" $preClass -}}{{- end -}}
+{{- if .line_start -}}{{- $preClass = printf "%s line-numbers" $preClass -}}{{- end -}}
+{{- $codeClass := printf "language-%s" .language -}}
+{{- if .line_numbers -}}{{- $codeClass = printf "%s line-numbers" $codeClass -}}{{- end -}}
+{{- if $output_present -}}{{- $codeClass = printf "%s output-lines" $codeClass -}}{{- end -}}
+
+<pre class="{{$preClass}}"
+{{- if .command_line}}
+ data-user={{ trim (index (split (index (split .command_line "|") 0) "@") 0 ) " "}}
+ data-host={{ trim (index (split (index (split .command_line "|") 0) "@") 1 ) " "}}
+ data-output={{ trim (index (split .command_line "|") 1) " "}}
+{{- end}}
+{{- if .line_start}}
+ data-start="{{.line_start}}"
+{{- end}}
+><code class="{{$codeClass}}">
+{{- if $output_present}}
+    {{- with .code -}}
+        {{- $inner := split . "\n" -}}
+        {{- $count := 0 -}}
+        {{- range $inner -}}
+            {{- if eq $.input_from "normal" -}}{{- $count = add $count 1 -}}{{- end -}}
+            {{- if in $lines_to_mark_output $count -}}
 __output__{{- . }}
-{{- else -}}
+            {{- else -}}
 {{- . }}
-{{- end -}}{{- if eq $.input_from "tabpane" -}}{{- $count = add $count 1 -}}{{- end -}}{{- end -}}{{- end -}}{{else}}{{- with .code -}}{{- $inner := split . "\n" -}}{{- range $inner -}}
-{{- . }}{{- end -}}{{- end -}}{{end}}</code></pre>
+            {{- end -}}
+            {{- if eq $.input_from "tabpane" -}}{{- $count = add $count 1 -}}{{- end -}}
+        {{- end -}}
+    {{- end -}}
+{{- else}}
+    {{- with .code -}}
+        {{- $inner := split . "\n" -}}
+        {{- range $inner -}}
+{{- . }}
+        {{- end -}}
+    {{- end -}}
+{{- end}}</code></pre>
