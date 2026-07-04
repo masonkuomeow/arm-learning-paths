@@ -39,6 +39,11 @@ Open a terminal, navigate to the project root, and build:
 
 ```bash
 cd alif_slm_r/alif_vscode-template
+```
+
+Then build the firmware:
+
+```bash
 cmake --build tmp --target stories260k_runner.debug+E8-HE
 ```
 
@@ -77,6 +82,11 @@ Navigate back to the project root and run the deploy script:
 
 ```bash
 cd ..
+```
+
+Then run the deploy script:
+
+```bash
 python deploy_setools.py "alif_vscode-template/out/stories260k_runner/E8-HE/debug/stories260k_runner.bin" --com COM3
 ```
 

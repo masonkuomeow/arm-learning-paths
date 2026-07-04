@@ -159,6 +159,11 @@ Clone the project:
 
 ```bash
 git clone https://github.com/masonkuomeow/alif_slm_r.git
+```
+
+Navigate into the project directory:
+
+```bash
 cd alif_slm_r
 ```
 
