@@ -1,0 +1,57 @@
+{{/*
+Codeblock formatting for prismjs - compact override.
+Each code line and its &#10; must be on the same template line to avoid extra whitespace.
+*/}}
+
+{{$lines_to_mark_output := slice}}
+{{ if .output_lines}}
+    {{range (split .output_lines ",")}}
+        {{if in . "-"}}
+            {{$start_num := int (index (split . "-") 0) }}
+            {{$end_num   := int (index (split . "-") 1) }}
+            {{ range seq (add 1 (sub $end_num $start_num ) )}}
+                {{$lines_to_mark_output = $lines_to_mark_output | append (sub (add . $start_num) 1)}}
+            {{ end }}
+        {{else}}
+                {{$lines_to_mark_output = $lines_to_mark_output | append (int .)}}
+        {{end}}
+    {{end}}
+{{end}}
+
+{{$output_present := false}}
+{{if or (.output_lines) (.command_line) (eq .language "output")}}
+    {{$output_present = true}}
+{{end}}
+
+<pre
+    class="language-{{.language}}{{if .command_line}} command-line{{end}}{{if .line_start}} line-numbers{{end}}"
+    {{if .command_line}}
+        data-user= {{ trim (index (split (index (split .command_line "|") 0) "@") 0 ) " "}}
+        data-host= {{ trim (index (split (index (split .command_line "|") 0) "@") 1 ) " "}}
+        data-output={{ trim (index (split .command_line "|") 1) " "}}
+    {{end}}
+    {{if .line_start}}
+        data-start="{{.line_start}}"
+    {{end}}
+><code class='language-{{.language}}{{if .line_numbers}} line-numbers{{end}}{{if $output_present}} output-lines{{end}}'>{{- if $output_present -}}
+{{- with .code -}}
+{{- $inner := split . "\n" -}}
+{{- $count := 0 -}}
+{{- range $inner -}}
+{{- if eq $.input_from "normal" -}}{{- $count = add $count 1 -}}{{- end -}}
+{{- if in $lines_to_mark_output $count -}}
+__output__{{- .}}&#10;
+{{- else -}}
+{{- .}}&#10;
+{{- end -}}
+{{- if eq $.input_from "tabpane" -}}{{- $count = add $count 1 -}}{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- else -}}
+{{- with .code -}}
+{{- $inner := split . "\n" -}}
+{{- range $inner -}}
+{{- .}}&#10;
+{{- end -}}
+{{- end -}}
+{{- end -}}</code></pre>
