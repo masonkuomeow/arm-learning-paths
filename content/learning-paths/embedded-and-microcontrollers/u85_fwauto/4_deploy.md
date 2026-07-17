@@ -184,22 +184,22 @@ If you see `READY>` and `Enter prompt:`, the firmware is running correctly.
 To exit `screen`, press `Ctrl+A` then `K`, then confirm with `y`.
 {{% /notice %}}
 
-## Common issues with manual configuration
+## Manual configuration is an open loop
 
-Manual firmware workflows are prone to errors because of the many details that must be correctly identified and consistently applied.
+In a manual workflow, you are the feedback path. The loop breaks at every point where it needs a value only you can supply -- so it isn't a loop at all, it's a straight line you stitch together by hand.
 
-| Issue | Why it happens | How fwauto helps |
-|------|----------------|-----------------|
-| Empty configuration file | The project starts without generated deployment values | `fwauto` identifies the missing values from the repository |
-| Wrong repository path | Commands were copied from a different project | `fwauto` uses the current cloned repository |
-| Missing build target | The user has to know which firmware directory and CMake target to use | `fwauto` inspects the project before generating the workflow |
-| Inconsistent manual edits | Values are changed in one place but not another | `fwauto` generates a consistent set of changes |
+| What the loop needs to know | Where it breaks without it |
+|------|----------------|
+| Which directory holds the firmware | The loop stops at the starting line, waiting for you |
+| Which build target | Pick the wrong one and the build still succeeds -- an open loop is only as accurate as its model |
+| Which board, probe, and port | Flash stops and waits for you -- the second break |
+| That these stay in sync | The model goes stale, and the system runs steadily toward the wrong result |
 
 ## Use fwauto to inspect the project
 
 Instead of manually inspecting the repository, you can ask `fwauto` to do it for you. `fwauto` reads the project structure, identifies the build system, locates the firmware directories, and determines the required configuration values -- all from the repository itself.
 
-This is useful because the `.fwauto/config.toml` file starts out empty. Rather than filling it in by hand, you can let `fwauto` discover what values are needed and propose them.
+This step takes you out of the feedback path. Once `fwauto` has written the config, the loop can close on itself for the first time: build -> flash -> read the board back -> find the mismatch -> know which target to rebuild and where to reflash -> run again.
 
 ## Prompt fwauto to generate the workflow
 
