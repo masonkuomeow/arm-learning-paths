@@ -75,21 +75,15 @@ Because FWAuto carries project context, verifies its own output, and runs the lo
 
 A traditional workflow is manual at every step:
 
-```console
-Requirement -> Datasheet -> SDK -> Code -> Build -> Flash -> Debug -> Fix
-```
+![Manual firmware workflow: Requirement, Datasheet, SDK, Code, Build, Flash, Debug, Fix](manual_workflow.jpg)
 
 FWAuto automates the loop and closes it with root-cause analysis:
 
-```console
-Requirement -> FWAuto -> Code -> Build -> Flash -> Debug -> Root cause -> Fix
-```
+![Automated firmware workflow: Requirement, FWAuto, Code, Build, Flash, Debug, Root cause, Fix](automated_workflow.jpg)
 
 For a failure, it connects evidence the way an experienced FAE does, rather than giving generic advice:
 
-```console
-Log -> Symbol -> SDK API -> Register -> Datasheet -> Root cause
-```
+![Failure analysis workflow: Log, Symbol, SDK API, Register, Datasheet, Root cause](fail_analysis.jpg)
 
 ### How FWAuto understands your project
 
