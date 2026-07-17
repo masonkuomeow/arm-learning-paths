@@ -212,4 +212,13 @@ arm-none-eabi-gcc --version
 JLinkExe --version
 ```
 
+You should see output similar to:
+
+```output
+Python 3.12.4
+v20.15.0
+uv 0.4.0
+and so on
+```
+
 With all dependencies installed, you are ready to set up FWAuto and prepare the hardware.
