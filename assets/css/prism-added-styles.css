@@ -14,7 +14,7 @@ pre[class*=language-] {
     padding: 0.45em 0.65em !important;
     margin: 0.4em 0 0.4em 16px !important;
     line-height: 1.35 !important;
-    overflow: visible !important;
+    overflow-x: auto !important;
     max-height: none !important;
 }
 
